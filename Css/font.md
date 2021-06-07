@@ -4,7 +4,7 @@
 > 글꼴의 스타일 
 
 ## font-weight
-> 글짜 두께
+> 글자 두께
 
 ## font-variant
 > 글꼴 변형
