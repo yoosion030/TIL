@@ -7,16 +7,19 @@
 ### \<td>
 >표의 열을 나타냄, \<tr>태그 하위에 위치함
 ### \<thead>
->표의 재목 영역을 나타냄, \<table>하위, \<tr>상위에 위치
+>표의 제목 영역을 나타냄, \<table>하위, \<tr>상위에 위치
 ### \<tbody>
 >표의 본문 영역을 나타냄, \<thead>와 같은 위치
 ### \<th>
 >제목 셀을 나타냄, \<td>대신 사용
 
+### \<caption>
+>표의 제목을 나타냄
 
 ### 예제
 ```html
 <table>
+    <caption>유씨가족</caption>
     <thead>
         <tr>
             <th>이름</th>
@@ -38,6 +41,7 @@
 
 ### 출력결과
 <table>
+    <caption>유씨가족</caption>
     <thead>
         <tr>
             <th>이름</th>
