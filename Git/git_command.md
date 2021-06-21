@@ -6,7 +6,7 @@
 ## 브랜치 작업
 > - git checkout { branch 명 } : 브랜치 변경하기
 > - git branch -d { branch 명 } : 브랜치 삭제하기
->  - git brnach { new-branch 명 } : 브랜치 생성하기
+>  - git branch { new-branch 명 } : 브랜치 생성하기
 ## 살펴보기 
 > - git status : 작업 디렉토리에 변경된 파일 보기
 > - git log : 변경 이력 보기
