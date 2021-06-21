@@ -13,4 +13,4 @@
 ## 커밋 작업
 > - git commit -m "commit message" : 메세지와 함께 커밋
 ## 연동하기
-> - git remote set -url origin { 깃하브 url } : repository 이름 변경 후 깃허브 연동 
+> - git remote set -url origin { 깃허브 url } : repository 이름 변경 후 깃허브 연동 
