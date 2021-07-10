@@ -16,11 +16,12 @@ flex-decoration 으로 속성 지정
 > 주축은 하단으로 블록 방향 ( 세로 )을 따름
 
 ## 속성
+
 flex-decoration 
 > 정렬할 방향을 지정
 
 flex-wrap 
-> 한 줄 또는 여러 줄에 걸쳐 정렬함 
+> 컨테이너가 더 이상 아이템들을 한 줄에 담을 여유 공간이 없을 때 아이템 줄바꿈을 어떻게 할지 결정하는 속성
 
 flex-flow 
 > flex-decoration flex-wrap;
@@ -28,15 +29,27 @@ flex-flow
 justify-content
 > 중심축에서 아이템을 어떻게 배치할지 결정함
 
-align-content
-> 세로선 상에 여분의 공간이 있는 경우 컨테이너 사이의 간격을 조절
-
 align-items 
 > 교차축에서 어떻게 배치할지 결정함
-> 
+
+align-content
+> flex-wrap: wrap;이 설정된 상태에서 아이템들의 행이 2줄 이상 되었을 때의 수직축 방향 정렬을 결정하는 속성
+
+
 align-self
 > 지정된 align-items 값을 무시하고 교차축 상에서 정렬함
 
 flex-grow   
-flex-shrink  
+> flex-basis는 Flex 아이템의 기본 크기를 설정함 ( flex-direction이 row일 때는 너비, column일 때는 높이 )
+
 flex-basis 
+> 아이템이 flex-basis의 값보다 커질 수 있는지를 결정하는 속성
+
+flex-shrink 
+> 아이템이 flex-basis의 값보다 작아질 수 있는지를 결정함 
+
+order
+> flex 요소의 순서 지정함. order의 기본값은 0이며 숫자가 커질수록 요소의 순서가 뒤로감.
+
+z-index
+> z-index로 Z축 정렬함. 숫자가 클 수록 위로 올라옵니다.
