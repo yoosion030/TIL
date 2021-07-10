@@ -4,7 +4,7 @@
 
 ## 주축
 flex-decoration 으로 속성 지정
-> - row
+> - row ( 기본값 )
 > - row-reverse
 > - column
 > - column-reverse
@@ -17,13 +17,13 @@ flex-decoration 으로 속성 지정
 
 ## 속성
 flex-decoration 
-  > 정렬할 방향을 지정
+> 정렬할 방향을 지정
 
 flex-wrap 
-  > 한 줄 또는 여러 줄에 걸쳐 정렬함 
+> 한 줄 또는 여러 줄에 걸쳐 정렬함 
 
 flex-flow 
-> flex-decoration, flex-wrap;
+> flex-decoration flex-wrap;
 
 justify-content
 > 중심축에서 아이템을 어떻게 배치할지 결정함
@@ -36,6 +36,7 @@ align-items
 > 
 align-self
 > 지정된 align-items 값을 무시하고 교차축 상에서 정렬함
-- flex-grow 
-- flex-shrink  
-- flex-basis 
+
+flex-grow   
+flex-shrink  
+flex-basis 
