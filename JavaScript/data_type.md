@@ -42,11 +42,11 @@ let value = 'string';
 ### typeof : 변수나 값의 타입을 알아내기 위한 키워드
 ``` javascript
 let value = 'string';
-typeof value;
+console.log(typeof value);
 let boolean = true;
-typeof boolean;
+console.log(typeof boolean);
 let num = 123;
-typeof num;
+console.log(typeof num);
 ```
 출력결과 
 > string   
