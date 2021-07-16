@@ -20,6 +20,6 @@
 - blur : 요소에 포커스가 벗어났을 때
 - change : 요소에 값이 변경 되었을 때
 - submit : submit 버튼을 눌렀을 때
-- reset : reset 버튼을 눌렀을 떄
-- select : input이나 textarea 요소안의 텍스트를 드래그하여 선택했을 떄
+- reset : reset 버튼을 눌렀을 때
+- select : input이나 textarea 요소안의 텍스트를 드래그하여 선택했을 때
   
