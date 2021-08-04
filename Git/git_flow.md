@@ -21,6 +21,6 @@
 3. 기능 추가 작업이 완료되었다면 feature 브랜치는 develop브랜치로 merge됨
    -  merge( 합병 ) : 두 개의 브랜치를 합치는 과정
 4. develop에 모든 기능이 merge 되었다면 QA( 품질 관리 )를 하기 위해 develop 브랜치에서 release 브랜치를 생성함
-- QA를 진행하면서 발생한 버그들은 relase 브랜치에 수정됨
-6. relase 브랜치를 master와 develop 브랜치로 merge함
-7. 마지막으로 출시된 master 브랜치에서 버전 태그를 추가함
+   - QA를 진행하면서 발생한 버그들은 relase 브랜치에 수정됨
+5. relase 브랜치를 master와 develop 브랜치로 merge함
+6. 마지막으로 출시된 master 브랜치에서 버전 태그를 추가함
