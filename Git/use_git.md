@@ -12,4 +12,6 @@
     - git branch [branch_name]
     - git checkout [branch_name]
     - git branch -d [branch_name]
-    - 
+    - git reset --hard [commit]
+    - git reset --soft [commit]
+    - git revert [commit]
