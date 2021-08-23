@@ -13,4 +13,8 @@
 ## 커밋 작업
 > - git commit -m "commit message" : 메세지와 함께 커밋
 ## 연동하기
+> - git remote add origin { 깃허브 url } : 원격 저장소 추가
+> - git retmoe -v : 원격 저장소 url 보기
+> - git remote rm origin : 원격 저장소 삭제
+> - git remote remove origin : 원격 저장소 삭제
 > - git remote set -url origin { 깃허브 url } : repository 이름 변경 후 깃허브 연동 
