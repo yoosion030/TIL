@@ -24,7 +24,7 @@ name = 'Yoosion';
 
 ## let/const
 ```js
-console.log(name); // reference error!
+console.log(name); // ReferenceError
 const name = 'Yoosion';
 ```
 > var와 달리 에러를 발생시킨다. </br> 호이스팅이 발생하긴 하지만 값을 참조할 수 없어서 호이스팅이 발생하지 않는 것처럼 보이는 것이다.
