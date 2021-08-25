@@ -1,7 +1,7 @@
 # 내가 자주 사용하는 명령어들
 
     - git init
-    - git remote add origin
+    - git remote add origin [github_url]
     - git remote -v
     - git log
     - git status

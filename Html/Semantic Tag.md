@@ -1,10 +1,9 @@
-# 시맨틱 태그
-
-## 시맨틱 태그란 의미에 맞게 태그를 작성하는 것을 의미한다. <br> 시맨틱 태그를 사용하면 코드의 가독성을 높이고 의미를 명확하게 해주는 장점이 있다.
+# 시맨틱 태그란 ❓
+- 의미에 맞게 태그를 작성하는 것을 의미한다. <br>
+- 시맨틱 태그를 사용하면 코드의 가독성을 높이고 의미를 명확하게 해주는 장점이 있다.
 
 ## 시맨틱 태그 구조
-## ![시맨틱 태그 구조](https://lh3.googleusercontent.com/proxy/32J3-YoRMe4yN7GpU80SVQBYKBA90s7soaFQla0PovwItHhz4gsfS0nLD666sWDwl0Y33cDFDvHsy69Z5dmHRjkhu3AJg4W-Fg62PtkElQSaCkRocnFo2V2U_LBLHv7e00ZkvtTL0UWz3iCsBFXgXsvIXOVTbp7ImNfOaGjbkCnkhTCZ8NAXktMFwpqL3tfqBh_-XBCAVmm_I0uOlTr8Bsiqqrq_3yLPADui72kl6eLjI7co38aEoyZ2r4CoXdyWWfmL3V3TGSutmJOllYrddG5xL8iLACOhlIuecW3jaQ)
-
+## ![시맨틱 태그 구조](https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile30.uf.tistory.com%2Fimage%2F99C15F335A0E385307BD0F)
 ## 시맨틱 태그의 종류
 ### \<header> 
 > 보통 홈페이지의 상단의 홈페이지 로고나 메인메뉴를 담고있는 영역
