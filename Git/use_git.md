@@ -15,3 +15,5 @@
     - git reset --hard [commit]
     - git reset --soft [commit]
     - git revert [commit]
+    - git reset HEAD^
+    - git push -f origin master
