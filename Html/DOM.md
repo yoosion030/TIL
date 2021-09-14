@@ -22,3 +22,4 @@ DOM은 원본 HTML 문서의 객체 기반 표현 방식이며 DOM의 개체구�
 ```
 위의 코드는 아래와 같은 노드 트리로 표현된다.
 ![](https://media.vlpt.us/post-images/surim014/3a552eb0-2ce7-11ea-91d1-4bc491a5cf25/image.png)
+
