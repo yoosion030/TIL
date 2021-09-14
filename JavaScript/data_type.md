@@ -7,6 +7,9 @@
 let boolean = true;
 let boolean = false;
 ```
+- false : 0, null, undefined, NaN, ''
+- true : any other value
+---
 
 ## null
 - 의도적으로 빈 값을 넣고 싶을 때 사용
@@ -15,8 +18,11 @@ let boolean = false;
 let value = null;
 console.log(value);
 ```
-출력결과
-> null
+출력결과  
+`null`
+
+---
+
 ## undefined
 - 아예 값이 지정되지 않았다는 것을 뜻함
 - 변수가 선언되었으나 초기값이 주어지지 않았을 때 undifined값을 가지게 됨
@@ -24,20 +30,43 @@ console.log(value);
 let value;
 console.log(value);
 ```
-출력결과
-> undefined
+출력결과  
+`undefined`
+
+---
+
 ## number
 - 말 그대로 숫자 !!
 - 정수형 실수형 등으로 숫자를 나누지 않고 number형 하나로 표현
+### NAN
+- 숫자가 아님
+
+### Infinity
+- 무한대
+
+---
+
 ## string
 - 문자열
 - 변수에 문자열 값을 넣을 때에는 꼭 따옴표로 감싸주어야 함
 ``` javascript
 let value = 'string';
 ```
+
+---
+
 ## object
 - 변수 object이름 = { property : 값};
 - 여러 개의 변수를 하나로 묶어서 관리할 수 있는 형태
+
+---
+
+
+## Symbol
+- 유일하고 변경 불가능한 기본값
+- 객체 속성의 key 값으로도 사용될 수 있음
+
+---
 
 ### typeof : 변수나 값의 타입을 알아내기 위한 키워드
 ``` javascript
@@ -48,7 +77,8 @@ console.log(typeof boolean);
 let num = 123;
 console.log(typeof num);
 ```
-출력결과 
-> string   
-> boolean  
-> number
+
+출력결과   
+`string`   
+`boolean`    
+`number`  
