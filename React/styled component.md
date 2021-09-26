@@ -84,7 +84,7 @@ const StyledDiv = styled.div`
     background-color: black;
     width: 100px;
     height: 100px;
-    p {
+    p {**0**
       color: white;
     }
   `;
