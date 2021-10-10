@@ -1,7 +1,12 @@
 # TypeScript란?
 - **TypeScript = Type + JavaScript**
 - JavaScript에 Type을 부여한 프로그래밍 언어이다.
-- JavaScript의 확장된 언어이다.
+- JavaScript의 확장된 언어이다.  
+`코드예시`
+```ts
+const myName:string = 'yoosion';
+```
+와 같이 변수 앞에 type을 부여해야한다.
 
 ## 특징
 1. **⭐컴파일 언어, 정적형태의 언어⭐**  
@@ -48,6 +53,8 @@
 ```
 - 타입이 안전하지 않은 줄에는 에디터에서 해당 코드를 에러로 표시한다.
 - 이러한 에러 메시지는 에디터에만 표시되며 코드에는 영향을 주지 않는다.
+
+---
 
 2. 자바스크립트용 타입스크립트 컴파일러 사용
 tsconfig.json 파일을 사용하여 컴파일러 설정을 세팅한다.
