@@ -14,7 +14,7 @@
 
 ## 장점
 
-1. **높은 수준의 코드 탐색과 디버깅**
+1. **높은 수준의 코드 탐색과 디버깅**  
 타입스크립트는 코드에 목적을 명시하고 목적에 맞지 않는 타입의 변수나 함수들에서 에러를 발생시켜 버그를 사전에 제거한다. 또한 코드 자동완성이나 실행 전 피드백을 제곡하여 작업과 동시에 디버깅이 가능해 생산성을 높일 수 있다.
 2. **자바스크립트 호환**
 프론트엔드 또는 백엔드 어디든 자바스크립트를 사용할 수 있는 곳이라면 타입스크립트도 쓸 수 있다. 타입스크립트는 앱과 웹을 구현하는 자바스크립트와 동일한 용도로 사용 가능하며 서버 단에서 개발이 이루어지는 복잡한 대형 프로젝트에서도 빛을 발한다.
@@ -43,7 +43,7 @@
  .vscode/setting.json에 코드를 추가
 ``` json
 {
- "Javascript.implicitProjectConfig.checkJs": true
+    "Javascript.implicitProjectConfig.checkJs": true
 }
 ```
 - 타입이 안전하지 않은 줄에는 에디터에서 해당 코드를 에러로 표시한다.
@@ -53,12 +53,12 @@
 tsconfig.json 파일을 사용하여 컴파일러 설정을 세팅한다.
 ``` json
 {
- "compilerOptions": {
-  "allowJs": true
-  "checkJs": false
-  "outDir": "./dist"
-  "rootDir": "./src"
-  "strict": false
+    "compilerOptions": {
+    "allowJs": true
+    "checkJs": false
+    "outDir": "./dist"
+    "rootDir": "./src"
+    "strict": false
  }
 }
 ```
