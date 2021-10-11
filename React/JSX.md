@@ -18,6 +18,9 @@ JSX는 자바스크립트 XML이다. 쉽게 말하자면 HTML 문법을 JavaScri
 ## JSX 문법
 ### 💻변수 사용
 변수를 사용할 때는 중괄호 안에 넣어주어야 한다.
+
+---
+
 ``` JSX
 const name = 'Yoosion';
 const hello = <h1>Hello, {name}</h1>
@@ -27,6 +30,8 @@ JSX의 중괄호 안에는 유효한 모든 `JS 표현식`을 넣을 수 있다.
 
 ### 💻className
 HTML에서 class를 주고싶으면 `class=" "` class를 사용하면 되지만 JSX에서는 `className`을 사용해야 한다. 
+
+---
 
 
 ### 💻닫힌 태그
@@ -46,3 +51,19 @@ JSX
 <input type = "text"/>
 <br/>
 ```
+
+### 💻inline style 
+JSX 상에서는 무조건 {} 오브젝트로 바꿔서 넣어야 한다.
+
+---
+
+HTML
+```HTML
+<div style="font-size : 16px">글씨</div>
+```
+JSX
+``` JSX
+<div style={fontSize : '16px'}> 글씨 </div>
+```
+- { 속성명 : '속성값' } 
+- 대쉬 기호를 쓸 수 없다. ex ) font-size => fontSize
