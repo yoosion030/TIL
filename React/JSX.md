@@ -63,7 +63,7 @@ HTML
 ```
 JSX
 ``` JSX
-<div style={fontSize : '16px'}> 글씨 </div>
+<div style={{fontSize : '16px'}}> 글씨 </div>
 ```
 - { 속성명 : '속성값' } 
 - 대쉬 기호를 쓸 수 없다. ex ) font-size => fontSize

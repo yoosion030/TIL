@@ -5,7 +5,6 @@
 
 ## Class component state
 
-
 ```JSX
 class App extends React.Component {
     constructor() {
