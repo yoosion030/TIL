@@ -1,10 +1,21 @@
 # 💅Styled Component
 
 ## 💅정의
-`styled-component`란 Javascript파일 내에서 CSS를 사용할 수 있게 해주는 대표적인 CSS-in-JS 라이브러리로 React 프레임워크를 주요 대상으로 한 라이브러리이다.
+`styled-component`란 Javascript파일 내에서 CSS를 사용할 수 있게 해주는 대표적인 **CSS-in-JS** 라이브러리로 React 프레임워크를 주요 대상으로 한 라이브러리이다.
 
 ## 💅사용
-`const 위에서 지정해준 component명 = styled.태그명 ``;`
+
+**1. styled-components 설치 (터미널에 입력)**
+> `npm install styled-components`  
+
+**2. import 추가 하기(적용하고자 하는 components파일 상단에)**
+> `import styled from 'styled-components';`
+
+**3. 적용**
+> `const 위에서 지정해준 component명 = styled.태그명 ``;`
+
+**4. 스타일 컴포넌트 이름은 ⭐대문자⭐로 !!**
+
 
 기존 CSS 스타일링 방식
 ``` JSX
@@ -31,10 +42,10 @@ styled-components를 사용한 방식
 ```
 
 ## 💅장점
-### 1. component 단위 스타일링
+### **1. component 단위 스타일링**
 styled component는 중복되지 않는 특정 class명을 생성해 스타일을 적용하기 때문에, className이 중복되거나 selector의 우선 적용 순위 때문에 css 스타일링이 혼선을 일으키는 사고를 방지할 수 있습니다.
 
-### 2. 조건부 스타일링
+### **2. 조건부 스타일링**
 
 ```JSX
 const StyledDiv = styled.div`
@@ -50,7 +61,7 @@ const StyledDiv = styled.div`
   ```
 styled-components는 Component의 props를 전달받아 사용하는 것이 가능합니다.
 
-### 3. 확장 스타일링
+### **3. 확장 스타일링**
 
 ```JSX
 const Container = styled.div`
@@ -77,14 +88,14 @@ const Container = styled.div`
 
 기존의 Component에 스타일을 추가할 수 있습니다. 확장 스타일링을 사용하면 중복된 코드 양을 줄이고, 분산된 스타일을 일괄적으로 관리할 수 있습니다.
 
-### 4. 중첩 스코프
+### **4. 중첩 스코프**
 
 ```JSX
 const StyledDiv = styled.div`
     background-color: black;
     width: 100px;
     height: 100px;
-    p {**0**
+    p {
       color: white;
     }
   `;
@@ -98,4 +109,17 @@ const StyledDiv = styled.div`
     </>
   );
   ```
+
 SASS의 중첩 스코프 규칙을 사용할 수 있습니다. 하위 컴포넌트에게만 적용하고 싶은 스타일을 스코프 형태로 구현할 수 있습니다.
+
+### **5. 상속**
+기존에 만들었던 컴포넌트를 상속받아 사용할 수 있습니다.
+
+```JSX
+import styled from 'styled-components'; const Button = styled.button`
+ padding: 6px 12px;
+`;
+const RedButton = styled(Button)`
+  background-color: #f53e3e;
+`;
+```
