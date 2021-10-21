@@ -21,7 +21,7 @@ function App (){
   let[name,setName] = useState(['유시온','유시지','유시현']);
   return (
     <div>
-        <Hello name={name}></Hello>
+        <Hello name={name} />
     </div>
   )
 }
