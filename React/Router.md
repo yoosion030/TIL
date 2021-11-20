@@ -53,4 +53,4 @@ export default App;
 
 `import { Route, Link } from 'react-router-dom';`
 
-> Route나 Link를 사용할 때에는 import 구문을 무조건 서야함 !!
+> Route나 Link를 사용할 때에는 import 구문을 무조건 써야함 !!

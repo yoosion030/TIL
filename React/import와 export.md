@@ -38,7 +38,7 @@ export function sayHello() {
 export const sayHi = () => console.log("hi");
 ```
 
-위 코드는 변수 fruits와 sayHi 그리고 함수 sayHello()를 내보내겠다는 의미이다.
+위 코드는 변수 `fruit` 그리고 함수 `sayHello()`와 `sayHi()`를 내보내겠다는 의미이다.
 
 ```JS
 export 변수나 함수 ~~
@@ -52,7 +52,7 @@ export 변수나 함수 ~~
 
 ```JS
 // sampleImport.js
-import { fruits as fruitsName, sayHello, sayHi } from "sample1";
+import { fruits as fruitsName } from "sample1";
 ```
 
 sample1에 있는 변수 `fruits`를 이 파일에서는 `fruitsName`으로 사용하겠다는 의미이다.
@@ -92,16 +92,16 @@ export const MainSection = styled.div`
 ```
 
 ```JS
-import * as S from './style'
+import * as S from './style';
 ```
 
-style.js에 있는 모든 것을 'S'라는 **객체에 담아 불러오겠다**는 의미이다. 그래서 <S.MainSection></S.MainSection> 컴포넌트를 사용하면 'S' 라는 객체 안에 있는 `MainSection`을 불러와 안에 있는 코드의 스타일을 적용해준다.
+style.js에 있는 모든 것을 'S'라는 **객체에 담아 불러오겠다**는 의미이다. 그래서 `<S.MainSection></S.MainSection>` 컴포넌트를 사용하면 'S' 라는 객체 안에 있는 `MainSection`을 불러와 그 안에 있는 코드의 스타일을 적용해준다.
 
 ```JS
-import \* as <obj> from'파일경로'
+import * as 이름 from '파일경로';
 ```
 
-가져올 사항이 많다면 `\*`를 이용해 객체형태로 불러올 수 있다.
+가져올 사항이 많다면 `\*`를 이용해 **객체형태**로 불러올 수 있다.
 
 ## export defult
 
@@ -110,7 +110,7 @@ export default 변수나 함수;
 ```
 
 ```JS
-import 변수나 함수 from '파일 경로'
+import 변수나 함수 from '파일 경로';
 ```
 
 변수나 함수를 **기본**으로 내보내겠다는 뜻이다. `default`로 내보내기를 하게 되면 `import`할 때 `{}`가 없어도 된다.
