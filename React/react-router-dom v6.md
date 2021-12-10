@@ -13,7 +13,6 @@ const history = useHistory();
 <button onClick={()=>history.push("/")}>
 <button onClick={()=>history.goBack()}>
 <button onClick={()=>history.go(-2)}>
-
 ```
 
 ```JS
@@ -78,4 +77,48 @@ const { username } = useRarams();
 <Routes>
     <Route path="/" exact component={Home} />
 </Routes>
+```
+
+## NavLink에 activeStyle, activeClassName이 사라짐
+
+```JS
+// v5
+<NavLink
+    to="/"
+    style={{color:'blue'}}
+    activeStyle={{color:'green'}}
+>
+    v5
+</NavLink>
+```
+
+```JS
+// v6
+<NavLink
+    to="/"
+    style={({isActive})=>({color: isActive ? 'green' : 'blue'})}
+>
+    v6
+</NavLink>
+```
+
+```JS
+// v5
+<NavLink
+    to="/"
+    className = "nav-link"
+    activeClassName = "activated"
+>
+    v5
+</NavLink>
+```
+
+```JS
+// v6
+<NavLink
+    to="/"
+    className = {({isActive}) => "nav-link" + (isActive ? "activated" : "" )}
+>
+    v6
+</NavLink>
 ```
