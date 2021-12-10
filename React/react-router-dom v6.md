@@ -2,34 +2,96 @@
 
 ## Switch -> Routes
 
-## useHistory -> useNavigate
+v5
 
 ```JS
-// v5
-const history = useHistory();
+<Switch>
+  <Route />
+</Routes>
 ```
 
-```JS
-<button onClick={()=>history.push("/")}>
-<button onClick={()=>history.goBack()}>
-<button onClick={()=>history.go(-2)}>
-```
+v6
 
 ```JS
-// v6
-const navigate = useNavigate();
+<Routes>
+  <Route />
+</Routes>
 ```
 
+## 중첩 라우팅
+
+v5
+
 ```JS
-<button onClick={()=>navigate('/')}>
-<button onClick={()=>navigate(-1)}>
-<button onClick={()=>navigate(-2)}>
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch
+} from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/user" component={User} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+function User() {
+
+  const { path } = useRouteMatch();
+  return (
+    <div>
+      <Switch>
+        <Route path={`${path}/detail`}>
+          <UserDetail />
+        </Route>
+      </Switch>
+    </div>
+  );
+}
+```
+
+v6
+
+```JS
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet
+} from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='user' element={<User />} >
+          <Route path='detail' element={<UserDetail />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function User() {
+  return (
+    <>
+      <Outlet />
+    </>
+  )
+}
 ```
 
 ## useRouteMatch -> 상대경로로 지정
 
+v5
+
 ```JS
-// v5
 const match = useRouteMatch();
 const { username } = useRarams();
 ```
@@ -41,8 +103,9 @@ const { username } = useRarams();
 <Link path = {`${math.path}/about`}></Link>
 ```
 
+v6
+
 ```JS
-// v6
 const { username } = useRarams();
 ```
 
@@ -53,72 +116,118 @@ const { username } = useRarams();
 <Link path = "about"></Link>
 ```
 
-## Route children, component -> element
+## useHistory -> useNavigate
+
+v5
 
 ```JS
-// v5
-<Route path="/" exact component={Home} />
+const history = useHistory();
 ```
 
 ```JS
-// v6
-<Route path="/" element={<P.Home />} />
+<button onClick={()=>history.push("/")}>
+<button onClick={()=>history.goBack()}>
+<button onClick={()=>history.go(-2)}>
+```
+
+v6
+
+```JS
+const navigate = useNavigate();
+```
+
+```JS
+<button onClick={()=>navigate('/')}>
+<button onClick={()=>navigate(-1)}>
+<button onClick={()=>navigate(-2)}>
+```
+
+## Route children, component -> element
+
+v5
+
+```JS
+<Route path="/" exact component={Home} />
+```
+
+v6
+
+```JS
+<Route path="/" element={<Home />} />
 ```
 
 ## Route는 Routes의 직속 자식이어야 함
 
+v5
+
 ```JS
-// v5
 <Route path="/" exact component={Home} />
 ```
 
+v6
+
 ```JS
-// v6
 <Routes>
-    <Route path="/" exact component={Home} />
+    <Route path="/" element={<Home />} />
 </Routes>
 ```
 
 ## NavLink에 activeStyle, activeClassName이 사라짐
 
+v5
+
 ```JS
-// v5
 <NavLink
     to="/"
     style={{color:'blue'}}
-    activeStyle={{color:'green'}}
->
-    v5
-</NavLink>
+    activeStyle={{color:'green'}} ></NavLink>
 ```
 
+v6
+
 ```JS
-// v6
 <NavLink
     to="/"
-    style={({isActive})=>({color: isActive ? 'green' : 'blue'})}
->
-    v6
-</NavLink>
+    style={({isActive})=>({color: isActive ? 'green' : 'blue'})} ></NavLink>
 ```
 
+v5
+
 ```JS
-// v5
 <NavLink
     to="/"
     className = "nav-link"
-    activeClassName = "activated"
->
-    v5
-</NavLink>
+    activeClassName = "activated" ></NavLink>
 ```
 
+v6
+
 ```JS
-// v6
 <NavLink
     to="/"
-    className = {({isActive}) => "nav-link" + (isActive ? "activated" : "" )}
->
-    v6
-</NavLink>
+    className = {({isActive}) => "nav-link" + (isActive ? "activated" : "" )} ></NavLink>
+```
+
+## StaticRouter import 위치 변경
+
+v5
+
+```JS
+import { StaticRouter } from 'react-router-dom';
+```
+
+v6
+
+```JS
+import { StaticRouter } from 'react-router-dom/server';
+```
+
+## exact 옵션 삭제
+
+만약 하위경로에 여러 라우팅을 매칭시키고 싶다면 다음과 같이 URL 뒤에 \* 을 사용하면 된다.
+
+v6
+
+```JS
+<Route path='categories/*' />
 ```
