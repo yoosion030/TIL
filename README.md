@@ -19,14 +19,12 @@
 - [스코프](/JavaScript/scope.md)
 - [펼침 연산자](/JavaScript/spread%20operator.md)
 - [var, let, const](/JavaScript/var_let_const.md)
--
 
 ## React
 
--
 - [Axios](/React/Axios.md)
-- [리액트 훅](/React/Hooks.md)
-- [JSX란](/React/JSX.md)
+- [리액트 훅](/React/Hooks)
+- [JSX란](https://github.com/yoosion030/TIL/tree/master/React/Hooks)
 - [react-router-dom](/React/Router.md)
 - [컴포넌트](/React/component.md)
 - [import와 export](/React/import와%20export.md)
