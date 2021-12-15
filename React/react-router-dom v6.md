@@ -257,7 +257,7 @@ import { StaticRouter } from 'react-router-dom/server';
 
 ## react-router-config -> useRoutes
 
-기존의 `react-router-config`가 v6 에서 `useRoutes` 라는 훅으로 이동되었습니다. 이제 별도로 패키지를 추가설치 하지 않고 `useRoutes` 훅을 사용해 `routes` 를 구성할 수 있다.
+기존의 `react-router-config`가 v6 에서 `useRoutes` 라는 훅으로 이동되었다. 이제 별도로 패키지를 추가설치 하지 않고 `useRoutes` 훅을 사용해 `routes` 를 구성할 수 있다.
 
 `참고자료`
 
