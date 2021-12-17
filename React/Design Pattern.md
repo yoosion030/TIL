@@ -170,3 +170,259 @@ const Button = ({ type = 'button', children = '' }) => (
 Pages 단위에서 어플리케이션 상태관리가 이루어져야 하다.
 
 하지만 분자, 유기체, 템플릿단위에서 컴포넌트를 위한 상태를 관리하는 것은 괜찮다.
+
+## 디자인 패턴 적용해보기
+
+**Presentational and Container Component Pattern**
+
+페이지 내에서 후기, 클래스 소개 커리큘럼, 키트 소개, 크리에이터, 커뮤니티, 환불 정책, 추천 항목 별로 컴포넌트를 나눴다.
+
+각 컴포넌트 별로 디렉토리를 생성하고 각 디렉토리 내부에는 로직을 담당하는 **Container**와 화면에 데이터를 보여주는 **Presenter** 그리고 스타일 파일로 나눠주었다.
+
+프로젝트에서 전체 스타일링을 담당하는 `globalStyle`는 디렉토리에서 따로 고나리할 수 있도록 하였다.
+
+상태관리는 담당하는 `store`디렉토리를 생성하고 그 안에 `reducers`, `sagas`디렉토리를 생성하여 구조를 잡았다.
+
+자주 쓰이는 Header와 Footer는 `Common`디렉터리 안에 담았다.
+
+```
+.
+└── src
+    ├── @types  // 타입을 관리하는 곳
+    │   ├── dataTypes.ts
+    │   └── handlerTypes.ts
+    ├── App.tsx
+    ├── Modal
+    │	├── ModalContainer.tsx
+    │	├── ModalPresenter.tsx
+    │	└── Modal.style.ts
+    │
+    ├── components
+    │   ├── ClassInformation
+    │   │   ├── ClassInformation.style.ts
+    │   │   ├── ClassInformationContainer.tsx
+    │   │   └── ClassInformationPresenter.tsx
+    │   ├── Common
+    │   │   ├── Footer
+    │   │   │   ├── Footer.style.ts
+    │   │   │   └── Footer.tsx
+    │   │   └── Header
+    │   │       ├── Header.style.ts
+    │   │       └── Header.tsx
+    │   ├── Community
+    │   │   ├── Community.style.ts
+    │   │   ├── CommunityContainer.tsx
+    │   │   └── ContainerPresenter.tsx
+    │   ├── Creator
+    │   │   ├── Creator.style.ts
+    │   │   ├── CreatorContainer.tsx
+    │   │   └── CreatorPresenter.tsx
+    │   ├── Curriculum
+    │   │   ├── Curriculum.style.ts
+    │   │   ├── CurriculumContainer.tsx
+    │   │   └── CurriculumPresenter.tsx
+    │   ├── Kit
+    │   │   ├── Kit.style.ts
+    │   │   ├── KitContainer.tsx
+    │   │   └── KitPresenter.tsx
+    │   ├── Recommend
+    │   │   ├── Recommend.style.ts
+    │   │   ├── RecommendCotainer.tsx
+    │   │   └── RecommnedPresenter.tsx
+    │   ├── RefundPolicy
+    │   │   ├── RefundPolicy.style.ts
+    │   │   ├── RefundPolicyContainer.tsx
+    │   │   └── RefundPolicyPresenter.tsx
+    │   ├── Review
+    │   │   ├── Review.style.ts
+    │   │   ├── ReviewContainer.tsx
+    │   │   └── ReviewPresenter.tsx
+    │   └── SideNavigationBar
+    │       ├── SideNavigationBar.style.ts
+    │       ├── SideNavigationBarContainer.tsx
+    │       └── SideNavigationBarPresenter.tsx
+    ├── api
+    │   └── classInformation.ts
+    ├── assets  // 이미지 파일 등 관리
+    ├── data
+    │   └── classInformation.json
+    ├── globalStyle
+    │   └── globalStyle.ts
+    ├── index.tsx
+    ├── react-app-env.d.ts
+    └── store
+        ├── reducers
+        │   ├── ClassInformation.ts
+        │   └── index.ts
+        └── sagas
+            ├── ClassInformation.ts
+            └── index.ts
+
+```
+
+**Atomic Design Pattern**
+
+atomic design pattern으로 프로젝트 설계하는게 시간이 더 오래걸리는 것 같다. atomic design pattern에서는 최소 단위은 atoms를 어떻게 구성을 해야할 지도 고려해봐야 하고 각 구조 단위를 사용하는 것이 효율적인지를 생각해봐야 한다.
+
+```
+.
+└── src
+    ├── @types
+    │   ├── dataTypes.ts
+    │   └── handlerTypes.ts
+    ├── App.tsx
+    ├── Modal
+    │   ├── atoms
+    │   ├── molecules
+    │   ├── organisms
+    │   └── templates
+    ├── _components
+    │   ├── UI
+    │   │   ├── atoms
+    │   │   │   ├── Button
+    │   │   │   │   ├── Button.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── Icon
+    │   │   │   │   ├── Icon.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── Image
+    │   │   │   │   ├── Image.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── Input
+    │   │   │   │   ├── Input.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── Text
+    │   │   │   │   ├── Test.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   └── index.ts
+    │   │   ├── molecules
+    │   │   │   ├── Banner
+    │   │   │   │   ├── Banner.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── ClassIntroduceContent
+    │   │   │   │   ├── ClassIntroduceContent.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── ClassIntroduceTitle
+    │   │   │   │   ├── ClassIntroduceTitle.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── ClassSimpleInforrmation
+    │   │   │   │   ├── ClassSimpleInformation.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── CommentInput
+    │   │   │   │   ├── CommentInput.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── CommunityTitle
+    │   │   │   │   ├── CommunityTitle.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── CurriculumContentList
+    │   │   │   │   ├── CurriculumContentList.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── CurriculumTitle
+    │   │   │   │   ├── CurriculumTitle.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── FooterInformation
+    │   │   │   │   ├── FooterInformation.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── KitIntroduceContent
+    │   │   │   │   ├── KitIntroduceContent.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── KitIntroduceTitle
+    │   │   │   │   ├── KitIntroduceTitle.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── RecommendInformation
+    │   │   │   │   ├── RecommendInformation.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── RecommendPrice
+    │   │   │   │   ├── RecommendPrice.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── ReviewGrid
+    │   │   │   │   ├── ReviewGrid.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── ReviewList
+    │   │   │   │   ├── ReviewList.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── SearchInput
+    │   │   │   │   ├── SearchInput.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── SectionNavBar
+    │   │   │   │   ├── SectionNavBar.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── SideNavBarButton
+    │   │   │   │   ├── SideNavBarButton.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── SideNavBarOption
+    │   │   │   │   ├── SideNavBarOption.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── SideNavBarPrice
+    │   │   │   │   ├── SideNavBarPrice.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── SideNavbarTitle
+    │   │   │   │   ├── SideNavbarTitle.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   ├── UserInformation
+    │   │   │   │   ├── UserInformation.style.ts
+    │   │   │   │   └── index.tsx
+    │   │   │   └── index.ts
+    │   │   └── organisms
+    │   │       ├── ClassIntroduceSection
+    │   │       │   ├── ClassIntroduceSection.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── ClassKitIntroduceSection
+    │   │       │   ├── ClassKitIntroductSection.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── CommentSection
+    │   │       │   ├── CommentSection.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── CommunitySection
+    │   │       │   ├── CommunitySection.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── CurriculumSection
+    │   │       │   ├── CurriculumSection.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── Footer
+    │   │       │   ├── Footer.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── Header
+    │   │       │   ├── Header.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── RecommendSection
+    │   │       │   ├── RecommendSection.style.ts
+    │   │       │   └── index.tsx
+    │   │       ├── SideNavBarSection
+    │   │       │   ├── SideNavNarSection.style.ts
+    │   │       │   └── index.tsx
+    │   │       └── index.ts
+    │   ├── pages
+    │   │   ├── ClassDetail
+    │   │   │   ├── ClassDetail.style.ts
+    │   │   │   └── index.tsx
+    │   │   └── index.tsx
+    │   └── templates
+    │       ├── ClassInformation
+    │       │   └── index.tsx
+    │       ├── Community
+    │       │   └── index.tsx
+    │       ├── SideNavBar
+    │       │   └── index.tsx
+    │       └── index.ts
+    ├── api
+    │   └── classInformation.ts
+    ├── assets
+    ├── data
+    │   └── classInformation.json
+    ├── globalStyle
+    │   └── globalStyle.ts
+    ├── index.tsx
+    ├── react-app-env.d.ts
+    └── store
+        ├── reducers
+        │   ├── ClassInformation.ts
+        │   └── index.ts
+        └── sagas
+            ├── ClassInformation.ts
+            └── index.ts
+```
+
+### ++
+
+리액트에서 가장 대표적인 디자인 패턴에는 **Presentational and Container Component Pattern**와 **Atomic Design Pattern**가 있고 내가 사용하고 있던 패턴은 Presentational and Container Component Pattern 이였다~
