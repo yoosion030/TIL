@@ -1,6 +1,6 @@
 # 12/21 useContext 사용과정
 
-바야흐로 2021년 12월 21일 아이디어 페스티벌에서 Context를 사용하였다.
+바야흐로 2021년 12월 21일 아이디어 페스티벌에서 useContext를 사용하였다.
 
 어쩌다 사용하게 되었냐면 Start 페이지에서 로그인을 하고 User 페이지로 사용자 정보를 넘겨줘야 했다. Start컴포넌트랑 User 컴포넌트는 부모 자식 관계가 아니기 때문에 props를 사용하지 못하였다. 그래서 Context를 사용하게 되었다.
 
@@ -13,7 +13,7 @@
 3. Context 객체를 생성
 4. 넘겨줄 값 선언
 5. value에 그 값 넣기
-6. 다른 컴포넌트에서 context를 사용할 때 쓰는 함수 생성
+6. 다른 컴포넌트에서 context를 사용할 때 쓰는 함수 생성 => useContext
 7. 앞에서 객체 선언했던거.Provider value={value} props 넘기기
 
 ```JS
@@ -74,7 +74,7 @@ export default App
 **Start.js**
 
 1. Context import
-2. context 파일에서 선언했던 함수 불러오기
+2. useContext 불러오기
 
 ```JS
 import React, { useState } from 'react'
@@ -97,3 +97,5 @@ const Start = () => {
 export default Start
 
 ```
+
+## Context 말고 useContext 적용시키기
