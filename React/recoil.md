@@ -58,12 +58,57 @@ const textState = atom({
 });
 ```
 
-먼저 atom을 import해준다. 그리고 변수 이름을 선헌해준 뒤 고유한 key 값과 기본 값을 설정해주면 된다.
+먼저 atom을 import해준다. 그리고 변수 이름을 선언해준 뒤 고유한 key 값과 기본 값을 설정해주면 된다.
+
+## Atom 불러오기
 
 ```JSX
-import { useRecoilState } from 'recoil'
+import { useResetRecoilState, useRecoilState } from 'recoil'
 ~~~
+  const test = useRecoilValue(textState);
   const [text, setText] = useRecoilState(textState);
 ```
 
-atom을 useState처럼 읽고 쓰게 하기 위해서는 `useRecoilState()`를 import해주고 위의 코드와 같이 사용해주면 된다.
+atom을 사용하고 싶다면 `useRecoilValue`를 import 해준 뒤 괄호 안에 사용할 atom을 넣어주면 된다.
+만약 atom을 useState처럼 읽고 쓰게 하기 위해서는 `useRecoilState()`를 import해주고 위의 코드와 같이 사용해주면 된다.
+
+`useResetRecoilState`
+
+```JSX
+import { useResetRecoilState } from 'recoil'
+~~~
+  const test = useResetRecoilState(textState);
+```
+
+atom의 state를 default 값으로 reset 시키는 역할을 한다.
+
+## Selector
+
+**state.js**
+
+```JSX
+export const cookieState = atom({
+  key: 'cookieState',
+  default: []
+});
+
+export const getCookieSelector = selector({
+  key: "cookie/get",
+  get: async ({ get }) => {
+    try{
+      const { data } = await client.get('/cookies');
+      return data.data;
+    } catch (err) {
+    	throw err;
+    }
+  },
+  set: ({set}, newValue)=> {
+    set(cookieState, newValue)
+  }
+});
+```
+
+## 장점
+
+- redux에 비해 매우 적은 러닝커브로 익힐 수 있다.
+- 웬만한 기능은 기본적으로 hook으로 구현되어 있기 때문에 가져다쓰기도 편하다. 개꿀띠
