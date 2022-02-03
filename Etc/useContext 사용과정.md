@@ -2,7 +2,7 @@
 
 바야흐로 2021년 12월 21일 아이디어 페스티벌에서 useContext를 사용하였다.
 
-어쩌다 사용하게 되었냐면 Start 페이지에서 로그인을 하고 User 페이지로 사용자 정보를 넘겨줘야 했다. Start컴포넌트랑 User 컴포넌트는 부모 자식 관계가 아니기 때문에 props를 사용하지 못하였다. 그래서 Context를 사용하게 되었다.
+어쩌다 사용하게 되었냐면 Start 페이지에서 로그인을 하고 User 페이지로 사용자 정보를 넘겨줘야 했다. Start컴포넌트랑 User 컴포넌트는 부모 자식 관계가 아니기 때문에 props를 사용하지 못하였다. 그래서 useContext를 사용하게 되었다.
 
 ## 내 방식대로 설명하기
 
@@ -97,5 +97,3 @@ const Start = () => {
 export default Start
 
 ```
-
-## Context 말고 useContext 적용시키기
