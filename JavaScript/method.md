@@ -31,6 +31,7 @@ pow 메소드는 제곱값을 반환해줍니다.
 ```JS
 Math.pow(base, exponent)
 ```
+
 base : 밑 값 (기준값)  
 exponent : base값을 제곱하기 위해 사용하는 지수
 
@@ -50,6 +51,7 @@ parseInt 메소드는 문자를 숫자로 변경합니다.
 ```JS
 parseInt("-10"); // -10
 ```
+
 문자열 "-10"을 숫자로 변환하여 정수 음수 -10을 리턴합니다.
 
 ```JS
@@ -62,6 +64,7 @@ parseInt("10nnn13"); // 10
 ```JS
 parseInt("10.9"); // 10
 ```
+
 문자열 타입의 실수값은 소수점을 제거한 후, 정수값만 리턴합니다.
 
 ```JS
@@ -81,3 +84,37 @@ parseInt("10      "); // 10
 ```
 
 문자열의 첫글자가 숫자이면, 뒤에 오는 공백은 무시됩니다.
+
+## join()
+
+```JS
+arr.join(separator)
+```
+
+join 메소드는 배열의 모든 값들을 연결한 문자열을 리턴합니다.  
+이때 각각의 값들 사이에는 파라미터로 입력된 구분자(separator)가 들어가게 됩니다.  
+**만약, separator를 입력하지 않은 경우, default로 ','가 들어갑니다.**
+
+```JS
+const arr = ['Apple', 'Banana', 'Orange'];
+const str1 = arr.join(); // "Apple, Banana, Orange"
+```
+
+파라미터에 아무 값이 안들어있기 때문에 ','로 연결됩니다.
+
+```JS
+const str2 = arr.join('-'); // "Apple-Banana-Orange"
+```
+
+```JS
+const str3 = arr.join(''); // "AppleBananaOrange"
+```
+
+## toString()
+
+toString 메소드는 배열을 표현하는 문자열을 리턴합니다.
+
+```JS
+const arr = ['Apple', 'Banana', 'Orange'];
+arr.toString(); // "Apple,Banana,Orange"
+```
