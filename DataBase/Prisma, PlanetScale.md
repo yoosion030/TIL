@@ -152,3 +152,74 @@ client를 프론트엔드 상에서 접근하려고 한다면 에러가 뜸
 
 - client는 데이터베이스에 직접 접근할 수 있는 파일을 프론트엔드인 브라우저에 추가했기 때문
 - 사용자들에게 데이터베이스를 수정할 수 있는 권한을 주면 안되기 때문
+
+**Next 서버에서 prisma 접근**
+
+1. pages/api/test.tsx 파일 생성
+2. API 생성하기  
+   connection 핸들러인 함수를 export default 해주면 됨
+
+```TSX
+// pages/api/test.tsx
+import { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+
+   }
+```
+
+Nextjs 가 제공해주는 req, res 사용
+
+3. prisma client 불러오기
+
+```js
+import client from "../../libs/client";
+```
+
+4. prisma client 접근, 생성하기
+
+```TSX
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  await client.user.create({
+    data: {
+      email: "hi",
+      name: "hi",
+    },
+  });
+  res.json({
+    ok: true,
+  });
+}
+```
+
+promise 를 return 해주기 때문에 비동기 처리 (async, await)
+
+5. localhost:3000/api/test 접속
+
+```JS
+  res.json({
+    ok: true,
+  });
+```
+
+를 해줬기 때문에 페이지에 접속하면 아래 값이 보임
+
+```JSON
+{"ok":true}
+```
+
+6. prisma studio 에서 새로고침하면
+
+```JS
+    data: {
+      email: "hi",
+      name: "hi",
+    },
+```
+값이 추가됨
