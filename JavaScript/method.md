@@ -118,3 +118,16 @@ toString 메소드는 배열을 표현하는 문자열을 리턴합니다.
 const arr = ['Apple', 'Banana', 'Orange'];
 arr.toString(); // "Apple,Banana,Orange"
 ```
+
+## reduce()
+
+reduce 메소드는 배열의 각 요소에 대해 주어진 **리듀서(reducer)** 함수를 실행하고, 하나의 결과값을 반환합니다. map메소도는 배열의 각 요소를 변형한다면 reduce는 배열 자체를 변형합니다.
+
+예를 들어 배열에 들어있는 숫자를 더하거나 평균을 구하는 것은 배열을 값 하나로 줄이는 동작입니다.
+
+리듀서 함수는 네개의 인자를 가집니다.
+
+1. 누산기accumulator (acc)
+2. 현재 값 (cur)
+3. 현재 인덱스 (idx)
+4. 원본 배열 (src)
