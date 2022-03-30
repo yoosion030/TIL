@@ -175,3 +175,5 @@ let myString: GenericLogTextFn<string> = logText;
 이와 같은 방식으로 제네릭 인터페이스 뿐만 아니라 클래스도 생성할 수 있다. 다만. enum과 namespace는 제네릭으로 생성할 수 없다.
 
 [제네릭 클래스, 제네릭 제약조건 더 알아보기](https://joshua1988.github.io/ts/guide/generics.html#%EC%A0%9C%EB%84%A4%EB%A6%AD-%ED%83%80%EC%9E%85)
+
+[타입스크립트의 제네릭](https://intrepidgeeks.com/tutorial/generic-type-of-script)
