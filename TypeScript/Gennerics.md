@@ -2,7 +2,11 @@
 
 ## 제네릭의 사전적 정의
 
-제네릭은 C#, Java 등의 언어에서 재사용성이 높은 컴포넌트를 만들 때 자주 활용되는 특징이다. 특히, 한가지 타입보다 여러가지 타입에서 동작하는 컴포넌트를 생성하는데 사용된다.
+Generic이란 테이터의 타입을 일반화한다(generalize)한다는 것을 뜻한다.  
+Generic은 자료형을 정하지 않고 여러 타입을 사용할 수 있게 해준다.  
+즉, 선언 지점이 아니라 생성 지점에 타입을 명시하여 하나의 타입만이 아닌 다양한 타입을 사용할 수 있도록 하는 기법이다. 한번의 선언으로 다양한 타입에 '재사용'이 가능하다는 장점이 있다.
+
+제네릭을 쓰지 않을 경우, 불필요한 타입 변환을 하기 때문에 프로그램의 성능에 악영향을 미치기도 하는데, 제네릭을 사용하게 되면 따로 타입 변환을 할 필요가 없어서 프로그램의 성능이 향상되는 장점이 있다.
 
 ## 제네릭의 한 줄 정의와 예시
 
@@ -91,6 +95,11 @@ const text = logText("Hello Generic");
 
 보통 두번째 방법이 코드도 더 짧고 가독성이 좋기 때문에 흔하게 사용한다. 그렇지만 만약 복잡한 코드에서 두번째 코드로 타입 추정이 되지 않는다면 첫번째 방법을 사용하면 된다.
 
+**generic이 없다면?**
+
+- 타입을 미리 지정 : 타입을 미리 지정하자면, 확실한 타입체크가 이뤄질 수 있겠지만 항상 number라는 타입을 받아야하므로 범용성이 떨어짐
+- any를 이용 : 그렇다고 any를 사용한다면 자료의 타입을 제한할 수 없을 뿐더러, 이 function을 통해 어떤 타입의 데이터가 리턴되는지 알 수 없음
+
 ## 제네릭 타입 변수
 
 ```ts
@@ -177,3 +186,5 @@ let myString: GenericLogTextFn<string> = logText;
 [제네릭 클래스, 제네릭 제약조건 더 알아보기](https://joshua1988.github.io/ts/guide/generics.html#%EC%A0%9C%EB%84%A4%EB%A6%AD-%ED%83%80%EC%9E%85)
 
 [타입스크립트의 제네릭](https://intrepidgeeks.com/tutorial/generic-type-of-script)
+
+[TypeScript | Generic](https://velog.io/@edie_ko/TypeScript-Generic-%EC%A0%9C%EB%84%A4%EB%A6%AD-feat.-TypeScript-%EB%91%90-%EB%8B%AC%EC%B0%A8-%ED%9B%84%EA%B8%B0)

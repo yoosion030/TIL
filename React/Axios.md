@@ -341,3 +341,5 @@ data: {
 // `baseURL`을 설정하는 것이 편리 할 수 ​​있습니다.
 baseURL: 'https://some-domain.com/api/',
 ```
+
+[config option 자세히 알아보기](https://grepper.tistory.com/72)
