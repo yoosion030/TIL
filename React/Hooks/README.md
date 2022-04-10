@@ -11,8 +11,8 @@
 3. [useContext](3.useContext.md)
 4. [useRef](4.useRef.md)
 5. [useMemo](5.useMemo.md)
-6. useCallback
-7. useReducer
+6. [useCallback](6.useCallback.md)
+7. [useReducer](7.useReducer.md)
 8. useLmperativeHandle
 9. useLayoutEffect
 10. useDebugValue
