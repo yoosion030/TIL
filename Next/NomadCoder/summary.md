@@ -268,14 +268,14 @@ import Head from 'next/head';
 2. Seo.js
 
 ```jsx
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Seo({ title }) {
   return (
     <Head>
       <title>{title} | Next Movies</title>
     </Head>
-  )
+  );
 }
 ```
 
@@ -377,7 +377,7 @@ ex ) movies/영화id
 
 2. Link 컴포넌트 이용하기
 
-````JSX
+```JSX
   <Link
     href={{
       pathname: `movies/${movie.id}`,
@@ -396,4 +396,3 @@ ex ) movies/영화id
 ## ☑ 11. 404Page
 
 파일명 : 404.js
-````
