@@ -64,4 +64,26 @@ const nextConfig = {
 module.exports = nextConfig;
 ```
 
-- width, height 속성이 필수 => lazy loading을 위해 (이미지가 보여지길 원하는 크기를 명시)
+- blurDataURL
+  Remote Image는 `placeholder`속성을 사용하지 못하기 때문에 직접 블러 처리된 이미지를 제공할 수 있다.
+
+- `layout="fill"` or `width, height`
+  속성이 필수 => lazy loading을 위해 (이미지가 보여지길 원하는 크기를 명시)
+
+## Layout Fill
+
+- intrinsic (기본깂)
+- fixed
+  width와 height의 정확한 크기
+- responsive
+  컨테이너의 width에 따라 크기가 바뀜
+- fill
+  image의 width와 height를 지정해주지 않았다면 사용할 유일한 옵션 / `object-fit`라는 CSS 속성과 함께 쓰인다. css말고 Image 컴포넌트 속성으로도 지정해줄 수 있다.
+
+**object-fit**
+
+- fill
+- contain
+- cover
+- none
+- scale-down
