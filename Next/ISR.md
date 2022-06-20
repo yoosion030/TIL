@@ -20,6 +20,8 @@ export async function getStaticProps() {
 }
 ```
 
+## Revalidate
+
 예를 들어 `/covid/stats` 요청 후 리턴 값으로 revalidate를 주었다고 가정한다. 이러한 코드는 다음과 같이 동작한다.
 
 - 1시간 전에 들어온 요청은 캐시에서 리턴한다.
@@ -56,4 +58,5 @@ API 핸들러 안에 한줄만 추가하면 됨
 ```JS
     await res.unstable_revalidate('validate할 url')
 ```
+
 // 아직은 베타 버전이라 `unstable_revalidate`라는 이름으로 사용될 수 있음
