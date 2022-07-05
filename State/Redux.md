@@ -277,6 +277,7 @@ const reducer = createReducer([], {});
 첫번째 인자에는 초기값(initialState)을 넣는다. 두번째 인자에는 객체를 넣는다.
 
 state를 새로 생성하지 않고 state를 mutate 할 수 있다는 큰 장점이 있다.
+
 **활용**
 
 ```js
@@ -301,4 +302,49 @@ const reducer = createReducer([], {
   [deleteToDo]: (state, action) =>
     state.filter((toDo) => toDo.id !== action.payload) // yes return(new state / no mutate),
 });
+```
+
+# 4.3 configureStore
+
+> redux developer tool
+
+```js
+const store = legacy_createStore(reducer); // NO Redux Toolkit
+
+const store = configureStore({ reducer }); // YES Redux Toolkit
+```
+
+# 4.4 createSlice
+
+> 여태까지 배웠던 것(state, action... )을 캡슐화한 함수이다.
+
+```js
+// NO createSlice
+const addToDo = createAction("ADD");
+const deleteToDo = createAction("DELETE");
+
+const reducer = createReducer([], {
+  [addToDo]: (state, action) => {
+    state.push({ text: action.payload, id: Date.now() });
+  },
+  [deleteToDo]: (state, action) =>
+    state.filter((toDo) => toDo.id !== action.payload),
+});
+
+const store = configureStore({ reducer });
+
+// YES createSlice
+const toDos = createSlice({
+  name: "toDoReducer",
+  initialState: [],
+  reducers: {
+    add: (state, action) => {
+      state.push({ text: action.payload, id: Date.now() });
+    },
+    remove: (state, action) =>
+      state.filter((toDo) => toDo.id !== action.payload),
+  },
+});
+
+const store = configureStore({ reducer: toDos.reducer });
 ```
