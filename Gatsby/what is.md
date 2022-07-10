@@ -63,3 +63,55 @@ JAM Stack을 가장 쉽게 따라해볼 수 있는 방법은 `Gatsby`와 `Netlif
 4. 기존 방식에 비해 더 빠르게 웹 사이트를 제공할 수 있다.
 5. 안전한 웹 사이트를 제공할 수 있다.
 6. 스케일링하기 쉬운 웹 사이트를 제공할 수 있다.
+
+## Gatsby 프로젝트 생성하기
+
+```
+npx gatsby-cli new "[프로젝트 명]"
+```
+
+**실행**
+
+```
+cd "[프로젝트 명]"
+gatsby develop
+# yarn develop 도 마찬가지로 가능
+```
+
+**프로젝트 구조**
+
+> /.cache  
+> Gatsby의 내부 캐시이다.  
+> /public  
+> gatsby build 의 Output이 들어간다.  
+> /plugins  
+> npm에 들어가지 않은 라이브러리나 플로그인을 넣을 수 있다.  
+> /src
+>
+> - /pages  
+>   파일 이름과 폴더 이름을 경로로 따르는 페이지
+> - /component  
+>   컴포넌트의 모음 폴더
+> - /images  
+>    이미지 모음 폴더  
+>    /static  
+>    static 폴더에 파일을 저장하면 Webpack 에서 파일을 처리하지 않고 공용 폴더에 복사되는 폴더가 존재한다.
+
+**설정파일**
+
+- gatsby-config.js
+
+  Gatsby 사이트의 기본 구성 파일이다.
+  여기서 사이트 제목 및 설명, 포함 할 Gatsby 플러그인 등 사이트 (메타 데이터)에 대한 정보를 지정할 수 있다.
+
+- gatsby-browser.js
+
+  Gatsby 브라우저 API 의 사용이 있는 경우 사용한다.
+
+- gatsby-node.js
+
+  Gatsby 노드 API 사용이 있을 경우의 사용법을 정의한다.
+
+- gatsby-ssr.js
+
+  Gatsby 서버 사이드 렌더링 API 사용이 있을 경우의 사용법 정의한다.
