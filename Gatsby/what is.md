@@ -64,7 +64,7 @@ JAM Stack을 가장 쉽게 따라해볼 수 있는 방법은 `Gatsby`와 `Netlif
 5. 안전한 웹 사이트를 제공할 수 있다.
 6. 스케일링하기 쉬운 웹 사이트를 제공할 수 있다.
 
-## Gatsby 프로젝트 생성하기
+### Gatsby 프로젝트 생성하기
 
 ```
 npx gatsby-cli new "[프로젝트 명]"
@@ -115,3 +115,11 @@ gatsby develop
 - gatsby-ssr.js
 
   Gatsby 서버 사이드 렌더링 API 사용이 있을 경우의 사용법 정의한다.
+
+### TypeScript 설정하기
+
+```
+yarn add typescript --dev // typescript 설치
+yarn add gatsby-plugin-typescript // Gatsby에서 타입스크립트를 사용하기 위한 플러그인 설치
+yarn tsc --init // tsconfig.json 파일 생성
+```
