@@ -61,29 +61,29 @@ parseInt("10nnn13"); // 10
 
 문자열의 첫 글자가 숫자이고, 그 이후에 숫자가 아닌 다른 문자열이 나올 경우 **숫자가 아닌 문자 이후의 값은 무시하고, 그 이전의 숫자만 정수로 변환합니다.**
 
-```JS
-parseInt("10.9"); // 10
-```
-
 문자열 타입의 실수값은 소수점을 제거한 후, 정수값만 리턴합니다.
 
 ```JS
-parseInt("k10"); // NaN
+parseInt("10.9"); // 10
 ```
 
 문자열의 첫글자가 숫자가 아니면, NaN(Not a Number)를 리턴합니다.
 
 ```JS
-parseInt("    10"); // 10
+parseInt("k10"); // NaN
 ```
 
 문자열의 첫글자는 반드시 숫자여야 하지만, 처음에 오는 공백 문자는 허용됩니다.
 
 ```JS
-parseInt("10      "); // 10
+parseInt("    10"); // 10
 ```
 
 문자열의 첫글자가 숫자이면, 뒤에 오는 공백은 무시됩니다.
+
+```JS
+parseInt("10      "); // 10
+```
 
 ## join()
 
@@ -121,7 +121,7 @@ arr.toString(); // "Apple,Banana,Orange"
 
 ## reduce()
 
-reduce 메소드는 배열의 각 요소에 대해 주어진 **리듀서(reducer)** 함수를 실행하고, 하나의 결과값을 반환합니다. map메소도는 배열의 각 요소를 변형한다면 reduce는 배열 자체를 변형합니다.
+reduce 메소드는 배열의 각 요소에 대해 주어진 **리듀서(reducer)** 함수를 실행하고, 하나의 결과값을 반환합니다. map메소드는 배열의 각 요소를 변형한다면 reduce는 배열 자체를 변형합니다.
 
 예를 들어 배열에 들어있는 숫자를 더하거나 평균을 구하는 것은 배열을 값 하나로 줄이는 동작입니다.
 
@@ -131,3 +131,58 @@ reduce 메소드는 배열의 각 요소에 대해 주어진 **리듀서(reducer
 2. 현재 값 (cur)
 3. 현재 인덱스 (idx)
 4. 원본 배열 (src)
+
+**구문**
+
+```
+arr.reduce(callback[, initialValue])
+```
+
+매개변수
+**callback**
+
+- accumulator
+  누산기는 콜백의 반환값을 누적합니다. 콜백의 이전 반환값 또는, 콜백의 첫 번째 호출이면서 `initialValue`를 제공한 경우에는 `initialValue`의 값입니다.
+- currentValue
+  처리할 현재 요소.
+- currentIndex
+  처리할 현재 요소의 인덱스. `initialValue`를 제공한 경우 0, 아니면 1부터 시작합니다.
+- array
+  `reduce()`를 호출한 배열.
+
+**initialValue**
+`callback`의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용합니다. 빈 배열에서 초기값 없이 `reduce()`를 호출하면 오류가 발생합니다.
+
+**활용** (배열의 모든 값 합산)
+
+```js
+[0, 1, 2, 3, 4].reduce(function (
+  accumulator,
+  currentValue,
+  currentIndex,
+  array
+) {
+  return accumulator + currentValue; // 10
+});
+
+[0, 1, 2, 3, 4].reduce((prev, curr) => prev + curr); // 10
+```
+
+## reverse()
+
+배열의 순서를 거꾸로 만들어줍니다.
+
+```JS
+const arr = ['Apple', 'Banana', 'Orange'];
+const reverse = arr.reverse(); // ['Orange', 'Banana','Apple']
+```
+
+reverse() 함수를 사용하면 원본 배열이 변형됩니다. 원본 배열을 그대로 유지하고, 리턴되는 값만 변경하고 싶을 때는 원본 배열을 복사해서 사용해야 합니다.
+
+```js
+const arr = ["Apple", "Banana", "Orange"];
+const reverse = [...arr].reverse(); // spread 연산자 사용
+
+console.log(arr); // ['Apple', 'Banana', 'Orange']
+console.log(reverse); // ['Orange', 'Banana','Apple']
+```
