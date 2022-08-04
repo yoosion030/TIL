@@ -111,3 +111,163 @@ export default function middleware(req: NextRequest, ev: NextFetchEvent) {
   }
 }
 ```
+
+# 중요! v12.2 Middleware 업그레이드 사항
+
+## 업그레이드 방법
+
+nextjs 버전을 v12.2 이상으로 업그레이드 하거나 최신버전을 유지하면 된다.
+
+```
+npm i next@latest
+npm i next@12.2
+```
+
+프로젝트에 ESLint를 구성한 경우 nextjs 버전과 동일한 버전을 사용해야한다.
+
+```
+npm i eslint-config-next@latest --dev
+npm i eslint-config-next@12.2 --dev
+```
+
+## 파일 위치 및 이름 변경
+
+원래는 `_middleware.ts`의 위치에 따라 코드가 적용되는 부분이 달라졌지만
+이제는 `pages` 디렉토리와 동일한 위치에 `middleware.ts`를 생성해야 한다.
+
+Before
+
+```
+[src]/[pages]/_middleware.ts
+```
+
+After
+
+```
+[src]/middleware.ts
+```
+
+**요약**
+
+- pages폴더 옆에 단일 미들웨어 파일 정의
+- 파일에 밑줄을 붙일 필요가 없습니다.
+- 사용자 지정 매처를 사용하여 내보낸 구성 개체를 사용하여 일치하는 경로를 정의할 수 있습니다.
+
+## 다중 파일 -> 단일 파일
+
+미들웨어는 앱의 모든 경로에 대해 호출되며 지정 매처를 사용하여 특정 상황에서만 정의할 수 있다.
+
+1. 특정 경로만 요청 하지 않을 때
+
+```ts
+// middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+  return NextResponse.rewrite(new URL("/about-2", request.url));
+}
+
+// Supports both a single string value or an array of matchers
+export const config = {
+  matcher: ["/about/:path*", "/dashboard/:path*"],
+};
+```
+
+2. 특정 경로와 일치할 때만 실행하려고 할 때
+
+```ts
+// <root>/middleware.js
+import type { NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+  if (request.nextUrl.pathname.startsWith("/about")) {
+    // This logic is only applied to /about
+  }
+
+  if (request.nextUrl.pathname.startsWith("/dashboard")) {
+    // This logic is only applied to /dashboard
+  }
+}
+```
+
+## Response 사용 X
+
+Before
+
+```ts
+// pages/_middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { isAuthValid } from "./lib/auth";
+
+export function middleware(request: NextRequest) {
+  // Example function to validate auth
+  if (isAuthValid(request)) {
+    return NextResponse.next();
+  }
+
+  return NextResponse.json({ message: "Auth required" }, { status: 401 });
+}
+```
+
+After
+
+```ts
+// middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { isAuthValid } from "./lib/auth";
+
+export function middleware(request: NextRequest) {
+  // Example function to validate auth
+  if (isAuthValid(request)) {
+    return NextResponse.next();
+  }
+
+  const loginUrl = new URL("/login", request.url);
+  loginUrl.searchParams.set("from", request.nextUrl.pathname);
+
+  // Response 대신 redirect로 처리
+  return NextResponse.redirect(loginUrl);
+}
+```
+
+**요약**
+
+- 미들웨어는 더 이상 `Response`을 생성할 수 없습니다.
+- 미들웨어가 `Response` 응답하면 런타임 오류가 발생합니다.
+- 페이지/API 응답을 `rewrite`나 `redirect를 사용하여 마이그레이션
+
+## 새로워진 User-Agent
+
+미들웨어에서는 `User-Agent` 일명 `ua`를 응답으로 부터 얻을 수 있었습니다. 업그레이드 전에는 request에서 바로 접근할 수 있었지만 이제는 `userAgent`를 호출하여 접근해야한다.
+
+Before
+
+```ts
+// pages/_middleware.ts
+import { NextRequest, NextResponse } from "next/server";
+
+export function middleware(request: NextRequest) {
+  const url = request.nextUrl;
+  const viewport = request.ua.device.type === "mobile" ? "mobile" :
+
+  return NextResponse.rewrite(url);
+}
+```
+
+After
+
+```ts
+import { NextRequest, NextResponse, userAgent } from "next/server";
+
+export function middleware(request: NextRequest) {
+  const url = request.nextUrl;
+  // userAgent 호출
+  const { device } = userAgent(request);
+  const viewport = device.type === "mobile" ? "mobile"
+
+  return NextResponse.rewrite(url);
+}
+```
