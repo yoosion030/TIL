@@ -186,3 +186,34 @@ const reverse = [...arr].reverse(); // spread 연산자 사용
 console.log(arr); // ['Apple', 'Banana', 'Orange']
 console.log(reverse); // ['Orange', 'Banana','Apple']
 ```
+
+## sort()
+
+`sort()` 메서드는 배열의 요소를 적절한 위치에 정렬한 후 그 배열을 반환합니다. 원 배열이 정렬되는 것에 유의하세요. 복사본이 만들어지는 것이 아닙니다.
+
+```js
+const months = ["March", "Jan", "Feb", "Dec"];
+
+console.log(months.sort());
+
+// expected output: Array ["Dec", "Feb", "Jan", "March"]
+```
+
+**구문**
+
+```
+arr.sort([compareFunction])
+```
+
+**compareFunction Optional**
+정렬 순서를 정의하는 함수. 생략하면 배열은 각 요소의 문자열 변환에 따라 각 문자의 유니 코드 코드 포인트 값에 따라 정렬됩니다.
+
+**활용** (배열 오름차순으로 정렬)
+
+```js
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function (a, b) {
+  return a - b;
+});
+console.log(numbers); // [1, 2, 3, 4, 5]
+```
