@@ -314,3 +314,27 @@ case "modify" :
 **setString(1, 값) 해주면 첫번째 물음표에 값이 들어감**
 
 ## 데이터 delete
+
+1. 리스트 페이지에서 수정 페이지로 이동할 link 생성
+```jsp
+<td>
+   <a href="action.jsp?id=<%=rs.getString(1)%>&mode=delete">삭제</a>
+</td>
+```
+
+2. action.jsp 작성
+```java
+String id = request.getParameter("id");
+
+case "delete" :
+   sql = "DELETE FROM course_tbl WHERE id="+id;
+   pstmt = conn.prepareStatement(sql);
+   pstmt.setString(1, id);
+   
+   pstmt.executeUpdate();
+%>
+<jsp:forward page="list.jsp"/>			
+<%
+   break;
+}
+```
