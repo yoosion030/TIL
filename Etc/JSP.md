@@ -344,3 +344,57 @@ function TryReset(){
 DecimalFormat dcf = new DecimalFormat("###,###");
 String tuition2 = dcf.format(100000); // 100,000
 ```
+
+## Radio Box
+
+**라디오 생성**
+```html
+<input type="radio" value="아메리카노" name="menuno" id="1"/> 
+<label for="1">아메리카노</label>
+
+<input type="radio" value="카페 라떼" name="menuno" id="2"/> 
+<label for="2">카페 라떼</label>
+...
+```
+
+1. input에 id지정
+2. label
+3. for 값에 id 값 넣기
+
+**예외처리**
+```js
+else if(frm.menuno[0].checked === false && frm.menuno[1].checked === false ...) {
+   alert("메뉴번호가 입력되지 않았습니다.");
+   return false;
+}
+```
+
+frm.[name값][인덱스].checked로 접근
+
+**수정 페이지에서 불러오기**
+```jsp
+<input type="radio" value=10001 name="menuno" id="1" <% if(rs.getString(4).equals("10001") )out.println("checked"); %>/> 
+```
+
+input 태그 안에 java 코드를 불러와서 if 문 조건이 맞으면 checked를 불러오게 함
+
+## Select Box
+
+**Select 생성**
+
+```html
+<select name="amount">
+   <option value=1>1개</option>
+   ...
+</select>
+```   
+
+**수정 페이지에서 불러오기**
+```jsp
+<select name="amount">
+   <option value=1 <% if(rs.getString(5).equals("1") )out.println("selected"); %> >1개</option>
+   ...
+</section>
+```
+
+option 태그 안에 java 코드를 불러와서 if문 조건이 맞으면 selected를 불러오게 함
