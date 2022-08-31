@@ -327,3 +327,91 @@ getData()
     console.log("then error : ", err); // then error :  Error: Error in then()
   });
 ```
+
+## async & await
+
+async 와 await은 자바스크립트의 비동기 처리 패턴 중 가장 최근에 나온 문법이다. 기존의 비동기 처리 방식인 콜백함수와 프로미스의 단점을 보완하고 개발자가 읽기 좋은 코드를 작성할 수 있게 도와준다.
+
+개발자에게 읽기 좋은 코드란 위에서 아래로 한 줄 한 줄 차근히 읽으면서 사고할 수 있는 코드 일 것이다. 이런 코드를 짜기 위해 async, await 문법이 생겨난 것이다.
+
+**async & await 적용된 코드와 그렇지 않은 코드**
+
+```js
+function logName() {
+  var user = fetchUser("domain.com/users/1");
+  if (user.id === 1) {
+    console.log(user.name);
+  }
+}
+```
+
+`fetchUser`가 서버에서 데이터를 받아오는 HTTP 통신 코드라고 가정했을 때 일반적으로 자바스크립트의 비동기 처리 코드는 아래와 같이 콜백을 사용해야지 코드의 실행순서를 보장받을 수 있다.
+
+```js
+function logName() {
+  // 아래의 user 변수는 위의 코드와 비교하기 위해 일부러 남겨놓았습니다.
+  var user = fetchUser("domain.com/users/1", function (user) {
+    if (user.id === 1) {
+      console.log(user.name);
+    }
+  });
+}
+```
+
+처음 콜백을 접하면 콜백과 같은 처리 방식이 익숙하지 않을 수 있다. 그래서 아래와 같이 간단하게 생각하자.
+
+```js
+// 비동기 처리를 콜백으로 안해도 된다면..
+function logName() {
+  var user = fetchUser("domain.com/users/1");
+  if (user.id === 1) {
+    console.log(user.name);
+  }
+}
+```
+
+서버에서 사용자 데이터를 불러와서 변수에 담고, 사용자 아이디가 1이면 사용자 이름을 출력한다.
+
+이러한 방식에서 async await만 붙이면 된다.
+
+```js
+// async & await 적용 후
+async function logName() {
+  var user = await fetchUser("domain.com/users/1");
+  if (user.id === 1) {
+    console.log(user.name);
+  }
+}
+```
+
+**기본 문법**
+
+```js
+async function 함수명() {
+  await 비동기_처리_메서드_명();
+}
+```
+
+먼저 함수 앞에 `async`라는 예약어를 붙이고 비동기 처리 코드 앞에 await을 붙이면 된다. 여기서 주의해야할 점은 비동기 처리 코드가 꼭 프로미스 객체를 반환해야 await이 의도한 대로 동작한다.
+
+일반적으로 `await`의 대상이 되는 비동기 처리 코드는 Axios 등 프로미스를 반환하는 API 호출 함수이다.
+
+`await`을 사용하지 않았다면 데이터를 받아온 시점에 콘솔을 출력할 수 있게 콜백함수나 `then()`등을 사용해야 했을 것이다. 하지만 async await 문법 덕에 비동기에 대한 사고를 하지 않아도 된다.
+
+**async & await 예외처리**
+
+async & await에서 예외처리 하는 방법은 바로 `try catch`이다. 프로미스에서 에러 처리를 위해 `catch()`를 사용했던 것 처럼 async에서는 `catch{}`를 사용하면 된다.
+
+```js
+async function logTodoTitle() {
+  try {
+    var user = await fetchUser();
+    if (user.id === 1) {
+      var todo = await fetchTodo();
+      console.log(todo.title); // delectus aut autem
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+```
