@@ -78,11 +78,11 @@ const Title = (props) => {
 
 props.children에 접근하면 우리가 원하던 대로 '고양이 가라사대'가 보여질 것이다
 
-## 구조분해할당
+## 구조분해(Destructuring)
 
-구조분해할당 문법을 이용하면 더 보기 쉽게 props에 접근할 수 있다.
+구조 분해 문법을 이용하면 더 보기 쉽게 props에 접근할 수 있다.
 
-아까 children 예제에 구조분해할당을 적용시킨다면
+아까 children 예제에 구조 분해 분법을 적용시킨다면
 
 ```js
 const Title = ({ children }) => {
