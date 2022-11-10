@@ -103,3 +103,5 @@ const io1 = new IntersectionObserver((entries, observer) => {
   });
 }, options);
 ```
+
+## 코딩애플 Intersection Observer 설명
