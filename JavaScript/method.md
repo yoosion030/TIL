@@ -43,6 +43,17 @@ Math.pow(7, -2); // 0.02040816326530612 (1/49)
 Math.pow(-7, 1/3); 	// NaN
 ```
 
+## Math.max()
+
+**Math.max()**함수는 입력값으로 받은 0개 이상의 숫자 중 가장 큰 숫자를 반환합니다.입력된 숫자 중 가장 큰 숫자를 반환합니다. 만약 인수 중 하나라도 숫자로 변환하지 못한다면 `NaN`로 반환합니다.
+
+**활용** (배열에서 최댓값 구하기)
+
+```js
+const numbers = [12, 2, 3, 4, 5, 77];
+console.log(...numbers); // 77
+```
+
 ## parseInt()
 
 parseInt 메소드는 문자를 숫자로 변경합니다.
@@ -216,4 +227,49 @@ numbers.sort(function (a, b) {
   return a - b;
 });
 console.log(numbers); // [1, 2, 3, 4, 5]
+```
+
+(배열 내림차순으로 정렬)
+
+```js
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function (a, b) {
+  return b - a;
+});
+console.log(numbers); // [1, 2, 3, 4, 5]
+```
+
+## Array.from()
+
+`Array.from` 메서드는 유사 배열 객체나 반복 가능한 객체를 얕게 복사해 새로운 `Array`객체를 만듭니다.
+
+**구문**
+
+```js
+Array.from(arrayLike[, mapFn[, thisArg]])
+```
+
+- arrayLike
+  배열로 변환하고자 하는 유사배열 객체나 반복 가능한 객체.
+- mapFn
+  배열의 모든 요소에 대해 호출할 맵핑 함수.
+- thisArg
+  mapFn 실행시에 this로 사용할 값.
+
+**반환 값**  
+새로운 `Array` 인스턴스.
+
+**활용**
+String에서 배열 만들기
+
+```js
+Array.from("foo");
+// ["f", "o", "o"]
+```
+
+**Array.from과 화살표 함수 사용하기**
+
+```js
+Array.from([1, 2, 3], (x) => x + x);
+// [2, 4, 6]
 ```
