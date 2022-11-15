@@ -304,3 +304,23 @@ console.log(beasts.indexOf("bison", 2)); // 4
 
 console.log(beasts.indexOf("giraffe")); // -1
 ```
+
+## String.repeat()
+
+**구문**
+
+```js
+str.repeat(count);
+```
+
+- count
+  문자열을 반복할 횟수.
+
+**반환**
+현재 문자열을 주어진 횟수만큼 반복해 붙인 새로운 문자열.
+
+**활용**
+
+```js
+"abc".repeat(2); // 'abcabc'
+```
