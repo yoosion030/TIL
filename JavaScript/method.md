@@ -273,3 +273,34 @@ Array.from("foo");
 Array.from([1, 2, 3], (x) => x + x);
 // [2, 4, 6]
 ```
+
+## Array.indexOf()
+
+`indexOf()` 메서드는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환합니다.
+
+**구문**
+
+```js
+arr.indexOf(searchElement[, fromIndex])
+```
+
+- searchElement
+  배열에서 찾을 요소
+- fromIndex
+  검색을 시작할 색인입니다.
+
+**반환**
+배열 내의 요소의 최초의 인덱스. 발견되지 않으면 -1.
+
+**활용**
+
+```js
+const beasts = ["ant", "bison", "camel", "duck", "bison"];
+
+console.log(beasts.indexOf("bison")); // 1
+
+// start from index 2
+console.log(beasts.indexOf("bison", 2)); // 4
+
+console.log(beasts.indexOf("giraffe")); // -1
+```
