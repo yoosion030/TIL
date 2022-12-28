@@ -305,6 +305,40 @@ console.log(beasts.indexOf("bison", 2)); // 4
 console.log(beasts.indexOf("giraffe")); // -1
 ```
 
+## String.split()
+
+`split()`메서드는 String 객체를 지정한 구분자를 이용하여 여러 개의 문자열로 나눕니다.
+
+**구문**
+
+```js
+split();
+split(separator);
+split(separator, limit);
+```
+
+- separator
+  원본 문자열을 끊어야 할 부분을 나타내는 문자열을 나타냅니다.
+- limit
+  끊어진 문자열의 최대 개수를 나타내는 정수입니다.
+
+**반환**  
+주어진 문자열을 `separator`마다 끊은 부분 문자열을 담은 **Array**
+
+**활용**
+
+```js
+const myString = "Hello World. How are you doing?".split(" ");
+// 띄어쓰기 간격마다 배열 분리
+// [ 'Hello', 'World.', 'How', 'are', 'you', 'doing?' ]
+const myString = "Hello World. How are you doing?".split("H");
+// H가 들어갈 때마다 배열 분리
+// [ '', 'ello World. ', 'ow are you doing?' ]
+
+const myString = "Hello World. How are you doing?".split(" ", 3);
+//   ["Hello", "World.", "How"]
+```
+
 ## String.repeat()
 
 **구문**
